@@ -20,7 +20,7 @@
   <!--Info box -->
   <div class="info rounded-bottom"
        *ngIf="infoBarVisible">
-    <div class="photo-name">{{replaceUnderscore(Title)}}</div>
+    <div class="photo-name">{{toTitle(Title)}}</div>
 
     <div class="photo-position" *ngIf="gridMedia.hasPositionData()">
       <ng-icon name="ionLocationOutline"></ng-icon>
