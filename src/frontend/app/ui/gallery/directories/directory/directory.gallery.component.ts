@@ -66,7 +66,7 @@ export class GalleryDirectoryComponent implements OnInit, OnDestroy {
   }
 
   replaceUnderscore(text: string): string {
-    return text.replaceAll('_', ' ').trim()
+    return text?.replaceAll('_', ' ').trim() ?? ''
   }
 }
 
