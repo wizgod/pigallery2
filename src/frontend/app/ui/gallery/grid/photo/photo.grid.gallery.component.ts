@@ -177,4 +177,8 @@ export class GalleryPhotoComponent implements IRenderable, OnInit, OnDestroy {
       height: this.imageRef.nativeElement.height,
     };
   }
+
+  replaceUnderscore(name: string): string {
+    return name.replaceAll('_', ' ').trim()
+  }
 }
