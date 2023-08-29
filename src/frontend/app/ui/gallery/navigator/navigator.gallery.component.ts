@@ -215,6 +215,10 @@ export class GalleryNavigatorComponent {
     }
     this.lastScroll.any = scrollPosition;
   }
+
+  replaceUnderscore(text: string): string {
+    return text?.replaceAll('_', ' ').trim() ?? ''
+  }
 }
 
 interface NavigatorPath {
