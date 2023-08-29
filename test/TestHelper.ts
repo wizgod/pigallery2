@@ -272,6 +272,8 @@ export class TestHelper {
       name: DiskMangerWorker.dirName(forceStr || Math.random().toString(36).substring(7)),
       path: DiskMangerWorker.pathFromParent({path: '', name: '.'}),
       mediaCount: 0,
+      videoCount: 0,
+      directoryCount: 0,
       directories: [],
       metaFile: [],
       cover: null,

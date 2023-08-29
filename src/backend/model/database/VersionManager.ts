@@ -11,6 +11,8 @@ export class VersionManager implements IObjectManager {
     name: string;
     lastModified: number;
     mediaCount: number;
+    videoCount: number;
+    directoryCount: number;
   } = null;
 
   async getDataVersion(): Promise<string> {
@@ -53,6 +55,8 @@ export class VersionManager implements IObjectManager {
     }
     this.latestDirectoryStatus = {
       mediaCount: dir.mediaCount,
+      videoCount: dir.videoCount,
+      directoryCount: dir.directoryCount,
       lastModified: dir.lastModified,
       name: dir.name,
     };
