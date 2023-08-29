@@ -15,6 +15,7 @@ import {VideoProcessing} from '../fileprocessing/VideoProcessing';
 import {PhotoProcessing} from '../fileprocessing/PhotoProcessing';
 import {Utils} from '../../../common/Utils';
 import {GPXProcessing} from '../fileprocessing/GPXProcessing';
+import {MediaDTOUtils} from "../../../common/entities/MediaDTO";
 
 export class DiskMangerWorker {
   public static calcLastModified(stat: Stats): number {
@@ -124,6 +125,8 @@ export class DiskMangerWorker {
       directories: [],
       isPartial: false,
       mediaCount: 0,
+      videoCount: 0,
+      directoryCount: 0,
       cover: null,
       validCover: false,
       media: [],
@@ -144,6 +147,8 @@ export class DiskMangerWorker {
         path.join(absoluteDirectoryName, file)
       );
       if ((await fsp.stat(fullFilePath)).isDirectory()) {
+        directory.directoryCount++;
+
         if (
           settings.noDirectory === true ||
           settings.coverOnly === true ||
@@ -239,7 +244,7 @@ export class DiskMangerWorker {
     }
 
     directory.mediaCount = directory.media.length;
-
+    directory.videoCount = directory.media.filter(q => MediaDTOUtils.isVideo(q))?.length;
     return directory;
   }
 
