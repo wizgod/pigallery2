@@ -64,6 +64,12 @@ export class DirectoryEntity
   @Column('mediumint', { unsigned: true })
   mediaCount: number;
 
+  @Column('mediumint', { unsigned: true })
+  videoCount: number;
+
+  @Column('mediumint', { unsigned: true })
+  directoryCount: number;
+
   @Index()
   @ManyToOne((type) => DirectoryEntity, (directory) => directory.directories, {
     onDelete: 'CASCADE',
