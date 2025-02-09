@@ -16,13 +16,13 @@
   <!--Info box -->
   <div class="info rounded-bottom">
     <div class="directory-name">{{replaceUnderscore(directory.name)}}</div>
-    <div *ngIf='directory.directoryCount > 0 || directory.mediaCount > 0 || directory.videoCount > 0' class='small'>
-      <hr style='padding: 0!important; margin: 0!important;'/>
-      <span *ngIf='directory.directoryCount > 0'>{{directory.directoryCount}} album<span *ngIf='directory.directoryCount > 1'>s</span></span>
-      <span *ngIf='directory.directoryCount > 0 && directory.mediaCount > 0'>, </span>
-      <span *ngIf='directory.mediaCount > 0'>{{directory.mediaCount - directory.videoCount}} picture<span *ngIf='(directory.mediaCount - directory.videoCount) > 1'>s</span></span>
-      <span *ngIf='(directory.directoryCount > 0 || directory.mediaCount > 0) && directory.videoCount > 0'>, </span>
-      <span *ngIf='directory.videoCount > 0'>{{directory.videoCount}} video<span *ngIf='directory.videoCount > 1'>s</span></span>
+    <div *ngIf='directory.directoryCount || directory.mediaCount || directory.videoCount' class='small'>
+      <hr style='padding: 0; margin: 0;'/>
+      <span *ngIf='directory.directoryCount'>{{directory.directoryCount}} album<span *ngIf='directory.directoryCount > 1'>s</span></span>
+      <span *ngIf='directory.directoryCount && directory.mediaCount'>, </span>
+      <span *ngIf='directory.mediaCount'>{{directory.mediaCount - directory.videoCount}} picture<span *ngIf='(directory.mediaCount - directory.videoCount) > 1'>s</span></span>
+      <span *ngIf='(directory.directoryCount || directory.mediaCount) && directory.videoCount'>, </span>
+      <span *ngIf='directory.videoCount'>{{directory.videoCount}} video<span *ngIf='directory.videoCount > 1'>s</span></span>
     </div>
   </div>
 </a>
