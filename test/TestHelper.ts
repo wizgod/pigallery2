@@ -308,6 +308,8 @@ export class TestHelper {
       name: DiskManager.dirName(forceStr || Math.random().toString(36).substring(7)),
       path: DiskManager.pathFromParent({path: '', name: '.'}),
       mediaCount: 0,
+      videoCount: 0,
+      directoryCount: 0,
       youngestMedia: 10,
       oldestMedia: 1000,
       directories: [],

@@ -19,6 +19,8 @@ export interface DirectoryBaseDTO<S extends FileDTO = MediaDTO>
   isPartial?: boolean;
   parent: DirectoryBaseDTO<S>;
   mediaCount: number;
+  videoCount: number;
+  directoryCount: number;
   youngestMedia?: number;
   oldestMedia?: number;
   directories?: DirectoryBaseDTO<S>[];
@@ -38,6 +40,8 @@ export interface ParentDirectoryDTO<S extends FileDTO = MediaDTO>
   isPartial?: boolean;
   parent: ParentDirectoryDTO<S>;
   mediaCount: number;
+  videoCount: number;
+  directoryCount: number;
   youngestMedia?: number;
   oldestMedia?: number;
   directories: SubDirectoryDTO<S>[];
@@ -55,6 +59,8 @@ export interface SubDirectoryDTO<S extends FileDTO = MediaDTO>
   isPartial?: boolean;
   parent: ParentDirectoryDTO<S>;
   mediaCount: number;
+  videoCount: number;
+  directoryCount: number;
   cover: CoverPhotoDTO;
   validCover?: boolean; // does not go to the client side
 }

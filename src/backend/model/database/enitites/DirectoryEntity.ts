@@ -52,6 +52,12 @@ export class DirectoryEntity
   @Column('mediumint', {unsigned: true})
   mediaCount: number;
 
+  @Column('mediumint', { unsigned: true })
+  videoCount: number;
+
+  @Column('mediumint', { unsigned: true })
+  directoryCount: number;
+  
   @Column('bigint', {
     nullable: true,
     transformer: {

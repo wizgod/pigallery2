@@ -4,9 +4,9 @@
             <ol *ngIf="isDirectory" id="directory-path" class="mb-0 mt-1 breadcrumb">
                 <li *ngFor="let path of routes | async" class="breadcrumb-item">
                     <a *ngIf="path.route" [routerLink]="['/gallery',path.route]"
-                       [title]="path.title || ''"
-                       [queryParams]="queryService.getParams()">{{path.name}}</a>
-                    <ng-container *ngIf="!path.route">{{path.name}}</ng-container>
+                       [title]="replaceUnderscore(path.title) || ''"
+                       [queryParams]="queryService.getParams()">{{replaceUnderscore(path.name)}}</a>
+                    <ng-container *ngIf="!path.route">{{replaceUnderscore(path.name)}}</ng-container>
                 </li>
             </ol>
 

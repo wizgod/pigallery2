@@ -268,6 +268,10 @@ export class GalleryNavigatorComponent {
   }
 
   protected readonly GroupByTypes = GroupByTypes;
+
+  replaceUnderscore(text: string): string {
+    return text?.replaceAll('_', ' ').trim() ?? ''
+  }
 }
 
 interface NavigatorPath {

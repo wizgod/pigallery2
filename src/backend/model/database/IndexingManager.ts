@@ -209,6 +209,8 @@ export class IndexingManager {
       currentDir.lastModified = scannedDirectory.lastModified;
       currentDir.lastScanned = scannedDirectory.lastScanned;
       currentDir.mediaCount = scannedDirectory.mediaCount;
+      currentDir.videoCount = scannedDirectory.videoCount;
+      currentDir.directoryCount = scannedDirectory.directoryCount;
       currentDir.youngestMedia = scannedDirectory.youngestMedia;
       currentDir.oldestMedia = scannedDirectory.oldestMedia;
       await directoryRepository.save(currentDir);
@@ -217,6 +219,8 @@ export class IndexingManager {
       return (
         await directoryRepository.insert({
           mediaCount: scannedDirectory.mediaCount,
+          videoCount: scannedDirectory.videoCount,
+          directoryCount: scannedDirectory.directoryCount,
           lastModified: scannedDirectory.lastModified,
           lastScanned: scannedDirectory.lastScanned,
           youngestMedia: scannedDirectory.youngestMedia,

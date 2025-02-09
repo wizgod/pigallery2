@@ -15,6 +15,7 @@ import {MDFileDTO} from '../../../common/entities/MDFileDTO';
 import {MetadataLoader} from './MetadataLoader';
 import {NotificationManager} from '../NotifocationManager';
 import {ExtensionDecorator} from '../extension/ExtensionDecorator';
+import {MediaDTOUtils} from "../../../common/entities/MediaDTO";
 
 
 const LOG_TAG = '[DiskManager]';
@@ -129,6 +130,8 @@ export class DiskManager {
       directories: [],
       isPartial: settings.coverOnly === true,
       mediaCount: 0,
+      videoCount: 0,
+      directoryCount: 0,
       cover: null,
       validCover: false,
       media: [],
@@ -153,6 +156,8 @@ export class DiskManager {
       );
       if ((await fsp.stat(fullFilePath)).isDirectory()) {
         try {
+          directory.directoryCount++;
+
           if (
             settings.noDirectory === true ||
             settings.coverOnly === true ||
@@ -272,6 +277,7 @@ export class DiskManager {
     }
 
     directory.mediaCount = directory.media.length;
+    directory.videoCount = directory.media.filter(q => MediaDTOUtils.isVideo(q))?.length;
     if (!directory.isPartial) {
       directory.youngestMedia = Number.MAX_SAFE_INTEGER;
       directory.oldestMedia = Number.MIN_SAFE_INTEGER;

@@ -178,4 +178,10 @@ export class GalleryPhotoComponent implements IRenderable, OnInit, OnDestroy {
       height: this.imageRef.nativeElement.height,
     };
   }
+
+  toTitle(text: string): string {
+    text = text?.replaceAll('_', ' ') ?? '';
+    // Strip the extension.
+    return (text.substring(0, text.lastIndexOf('.')) || text).trim();
+  }
 }
